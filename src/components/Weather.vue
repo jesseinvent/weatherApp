@@ -73,9 +73,9 @@ div{
     color: #fff;
     font-size: 80px;
     font-weight: 900;
-    text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
-    background-color: rgba(255, 255, 255, 0.246);
-    box-shadow: 3px 3px rgba(0, 0, 0, 0.25);
+    text-shadow: 3px 6px rgba(0, 0, 0, 0.27);
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.27);
     border-radius: 20px;
 }
 
@@ -83,7 +83,7 @@ div{
     color: #fff;
     font-size: 45px;
     font-weight: 600;
-    text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
+    text-shadow: 2px 5px 2px rgba(0, 0, 0, 0.27);
     font-style: italic;
 }
 

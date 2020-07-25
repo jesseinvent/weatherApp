@@ -57,9 +57,9 @@ div{
 .full{
     color: #fff;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 900;
     text-align: center;
-    text-shadow: 1px 2px rgba(0, 0, 0, 0.25);
+   text-shadow: 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .date{

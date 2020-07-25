@@ -1,29 +1,27 @@
 <template>
   <div class="container" v-bind:id="appStatus">
 
-      <app-header></app-header>
-      <input-bar v-model="locationInput" v-on:processWeather="processWeather()"></input-bar>
+    <div class="main">
 
-<h2>{{stat}}</h2>
+        <app-header></app-header>
+        <input-bar v-model="locationInput" v-on:processWeather="processWeather()"></input-bar>
 
-<div v-show="support">
-supported
-</div>
+        <div v-if="location.status === true">
+            <location v-bind:location="location"></location>
+        </div>
 
-      <div v-if="location.status === true">
-          <location v-bind:location="location"></location>
-      </div>
+        <div v-if="weather.status === true">
+            <weather v-bind:weather="weather"></weather>
+        </div>
 
-      <div v-if="weather.status === true">
-          <weather v-bind:weather="weather"></weather>
-      </div>
+        <div v-if="body">
 
-      <div v-if="body">
+          <component v-bind:is="bodyComponent"></component>
 
-        <component v-bind:is="bodyComponent"></component>
+          <div class="buttons" v-if="!locationTracked">
+                <button v-on:click="TrackLocation()">{{trackStatus}}</button>
+          </div>
 
-        <div class="buttons" v-if="!locationTracked">
-              <button v-on:click="TrackLocation()">{{trackStatus}}</button>
         </div>
 
       </div>
@@ -92,7 +90,7 @@ supported
 
         return new Promise(function(resolve, reject){
 
-            // if(navigator.geolocation){
+            if(navigator.geolocation){
 
               try {
 
@@ -118,14 +116,14 @@ supported
                 reject(error);
               }
 
-            // } else {
+            } else {
 
-            //   alert('Browser not supported');
-            //   this.Stop();
+              alert('Browser not supported');
+              this.Stop();
 
-            //   reject('Browser not supported');
+              reject('Browser not supported');
 
-            // }
+            }
                
         });
 
@@ -160,7 +158,6 @@ supported
       },
 
       getWeather (location) {
-
 
         this.stat = 'getting weather';
 
@@ -220,6 +217,12 @@ supported
               this.weather.temp = data.main.temp;
               this.weather.weather = data.weather[0].main;
               this.weather.description = data.weather[0].description;
+
+              if(data.main.temp < 20){
+                this.appStatus = 'cold';
+              } else {
+                this.appStatus = 'warm';
+              }
               
               this.body = false;
 
@@ -255,12 +258,14 @@ supported
             this.weather.location = `${data.name}, ${data.sys.country}`;
             
 
-            if(data.main.temp > 10){
-
+            if(data.main.temp < 20){
               this.appStatus = 'cold';
-
+            } else {
+              this.appStatus = 'warm';
             }
-            this.body = false;
+            
+            this.location.status = !this.location.status;
+
 
         }).catch(err => {
 
@@ -341,51 +346,52 @@ supported
   }
 
   /***APP STATUS STYLES***/
-  div.container {
-    top: -2px;
-    width: 30%;
+    
+  div.container{
+
+      margin: 0 auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: fixed;
+      transition: 0.4s;
+      top: -2px;
+      width: 30%;
+      min-height: 100vh;
+
   }
 
-div.container{
+  .main{
+    
+      padding: 0 15px;
+      min-height: 100vh;
+      background-image: linear-gradient(to bottom, rgba(51, 35, 35, 0.061), rgba(0, 0, 0, 0.671))
 
-    margin: 0px;
-    padding: 0 15px;
-    height: 100vh;
-    margin: 0 auto;
-    background: #fff;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: fixed;
-}
+  }
 
   div.container#tracking{
     
-    background-image: url('./assets/bg2.jpg');
-    /*background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75 ))*/
+    background-image: url('./assets/bg.jpg');
     
   }
 
   div.container#default{
-    background-image: url('./assets/bg3.jpg');
+    background-image: url('./assets/bg.jpg');
   }
 
 
   div.container#weather{
   
-    background: #fff;
     background-image: url('./assets/bg2.jpg');
    
   }
   
   div.container#warm{
   
-    background: #fff;
-    background-image: url('./assets/bg2.jpg');
+    background-image: url('./assets/warm-bg.jpg');
    
   }
   div.container#cold{
   
-    background: #fff;
     background-image: url('./assets/cold-bg.jpg');
    
   }
@@ -421,7 +427,6 @@ div.container{
     
     div.container{
       width: 80%;
-      padding: 0 10px;
 
     }
 
@@ -431,7 +436,6 @@ div.container{
     
     div.container{
       width: 90%;
-     padding: 0 15px;
     }
 
   }

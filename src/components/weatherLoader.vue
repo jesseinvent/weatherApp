@@ -30,12 +30,14 @@ export default {
         text-align: center;
         margin: 0px;
         padding-top: 20px;
+
     }
 
     p{
         font-size: 20px;
-        color: #000;
+        color: rgb(255, 254, 254);
         font-weight: bold;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.616);
     }
 
 /**************WEATHER ANIMATION**********/
@@ -53,7 +55,8 @@ export default {
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #000;
+    background: #fff;
+    box-shadow: 3px 2px rgba(0, 0, 0, 0.45);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
     }
     .lds-ellipsis div:nth-child(1) {

@@ -30,14 +30,14 @@ h1{
     font-size: 25px;
     color: #fff;
     font-weight: 900;
-    text-shadow: 3px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.43);
 }
 
 p{
     font-size: 15px;
     color: #fff;
     font-weight: 800;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.411);
 }
 
 
