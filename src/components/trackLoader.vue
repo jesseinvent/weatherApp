@@ -42,7 +42,7 @@ export default {
         text-align: center;
         margin: 0px;
         padding-top: 20px;
-        background-image: url('../assets/map2.jpg');
+        background-image: url('../assets/map2.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: fixed;

@@ -370,29 +370,29 @@
 
   div.container#tracking{
     
-    background-image: url('./assets/bg.jpg');
+    background-image: url('./assets/bg.png');
     
   }
 
   div.container#default{
-    background-image: url('./assets/bg.jpg');
+    background-image: url('./assets/bg.png');
   }
 
 
   div.container#weather{
   
-    background-image: url('./assets/bg2.jpg');
+    background-image: url('./assets/bg2.png');
    
   }
   
   div.container#warm{
   
-    background-image: url('./assets/warm-bg.jpg');
+    background-image: url('./assets/warm-bg.png');
    
   }
   div.container#cold{
   
-    background-image: url('./assets/cold-bg.jpg');
+    background-image: url('./assets/cold-bg.png');
    
   }
 
