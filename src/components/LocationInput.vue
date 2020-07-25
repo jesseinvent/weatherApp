@@ -49,18 +49,18 @@ div{
 input{
     margin: 10px 0px;
     width: 70%;
+    height: 9px;
     padding: 15px;
-    border-radius: 0px 5px 0px 5px;
+    border-radius: 0px 9px 0px 9px;
     outline: none;
     background: none;
     border: none;
     appearance: none;
-    font-size: 15px;
+    font-size: 13px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
    
     box-shadow: 0px 0px 8px rgb(0, 0, 0 ,0.25);
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius : 0px 20px 0px 20px;
     transition: 0.4s
 
 }

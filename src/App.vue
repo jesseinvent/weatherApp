@@ -247,6 +247,7 @@
       processWeather () {
 
         this.appStatus = 'weather';
+        this.locationTracked =  true;
         this.bodyComponent = 'app-weather-loader';
 
         this.getWeather(this.locationInput).then(data => { // get weather details
@@ -264,7 +265,8 @@
               this.appStatus = 'warm';
             }
             
-            this.location.status = !this.location.status;
+            this.location.status = false;
+            this.body = false;
 
 
         }).catch(err => {
@@ -353,7 +355,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: fixed;
-      transition: 0.4s;
       top: -2px;
       width: 30%;
       min-height: 100vh;
@@ -364,7 +365,7 @@
     
       padding: 0 15px;
       min-height: 100vh;
-      background-image: linear-gradient(to bottom, rgba(51, 35, 35, 0.061), rgba(0, 0, 0, 0.671))
+      background-image: linear-gradient(to bottom, rgba(51, 35, 35, 0.061), rgba(0, 0, 0, 0.671));
 
   }
 

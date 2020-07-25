@@ -42,8 +42,7 @@ export default {
 
 div{
     width: 100%;
-    padding: 15px;
-    top: 10px;
+    padding-bottom: 15px;
 }
 
 .state {
@@ -79,7 +78,7 @@ div{
 }
 
 img {
-    width: 30px;
-    height: 45px;
+    width: 25px;
+    height: 40px;
 }
 </style>
